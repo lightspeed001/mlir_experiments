@@ -1,0 +1,7 @@
+// dump to LLVM IR
+// outputs actual llvm IR (feed to cling or lli)
+
+mlir-opt hello.mlir \
+--convert-func-to-llvm \
+--reconcile-unrealized-casts | \
+mlir-translate --mlir-to-llvmir

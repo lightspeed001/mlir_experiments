@@ -1,0 +1,19 @@
+# Troubleshooting
+
+1. Error: "Op not registered"
+- forgot to load dialect. Add.
+mlir-opt --load-dialect=my_dialect
+
+2. Error: "Unrealised conversion cast"
+- --reconcile-unrealized-casts after lowering
+
+3. Error: "Unknown attribute/type"
+- Check if the dialect is loaded. Use --mlir-print-op-generic to debug
+
+4. Can't find a pass, list all passes
+mlir-opt --help | grep -i pass
+
+5. Need to debug IR
+- Uses:
+mlir-opt --mlir-print-op-generic --debug-only=your-pass
+
